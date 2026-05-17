@@ -1,0 +1,190 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2ji8oqgse6sr"]
+
+[ext_resource type="Script" uid="uid://cfihxchgpoxd4" path="res://deckbuilder_root.gd" id="1_7t4mu"]
+[ext_resource type="Texture2D" uid="uid://cnfdw4tcjn7mt" path="res://assets/deck_builder/background.png" id="1_421y8"]
+[ext_resource type="Texture2D" uid="uid://r0usx66e5wlj" path="res://assets/deck_builder/library.png" id="3_4n2m5"]
+[ext_resource type="Texture2D" uid="uid://gd7en6k4k3hl" path="res://assets/deck_builder/header.png" id="4_421y8"]
+[ext_resource type="Texture2D" uid="uid://df8uipsgnltog" path="res://assets/deck_builder/deck.png" id="4_r8giq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7t4mu"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4n2m5"]
+bg_color = Color(0.6651851, 0.61055017, 0.106126174, 0.09900001)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_7t4mu")
+
+[node name="camera" type="Camera2D" parent="."]
+zoom = Vector2(0.85, 0.85)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control"]
+texture = ExtResource("1_421y8")
+
+[node name="TextureRect_Library" type="Sprite2D" parent="Control"]
+position = Vector2(-156.6, 52.199986)
+scale = Vector2(1.1737705, 1.1230999)
+texture = ExtResource("3_4n2m5")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TextureRect_Library"]
+offset_left = -455.2849
+offset_top = -190.7221
+offset_right = 463.081
+offset_bottom = 156.53107
+
+[node name="GridLibrary" type="GridContainer" parent="Control/TextureRect_Library/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="Header" type="Sprite2D" parent="Control"]
+position = Vector2(-159.46875, -374)
+scale = Vector2(0.90489346, 1.1263736)
+texture = ExtResource("4_421y8")
+
+[node name="TextureRect_Deck" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 456.0
+offset_top = -305.0
+offset_right = 752.0
+offset_bottom = 422.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_r8giq")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TextureRect_Deck"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 113.0
+offset_right = 254.0
+offset_bottom = 580.0
+mouse_filter = 2
+
+[node name="GridDeck" type="GridContainer" parent="Control/TextureRect_Deck/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="btnhost" type="Button" parent="."]
+visible = false
+offset_left = 878.0
+offset_top = -402.0
+offset_right = 959.0
+offset_bottom = -371.0
+focus_mode = 0
+text = "host"
+
+[node name="btnjoin" type="Button" parent="."]
+visible = false
+offset_left = 975.0
+offset_top = -402.0
+offset_right = 1056.0
+offset_bottom = -371.0
+focus_mode = 0
+text = "Join"
+
+[node name="ipedit" type="LineEdit" parent="."]
+visible = false
+offset_left = 877.0
+offset_top = -357.0
+offset_right = 1060.0
+offset_bottom = -326.0
+placeholder_text = "127.0.0.1"
+alignment = 1
+
+[node name="btnsave" type="Button" parent="."]
+offset_left = 90.0
+offset_top = -397.0
+offset_right = 217.0
+offset_bottom = -359.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_7t4mu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4n2m5")
+text = "
+"
+
+[node name="btnload" type="Button" parent="."]
+offset_left = 443.0
+offset_top = -399.0
+offset_right = 544.0
+offset_bottom = -368.0
+focus_mode = 0
+text = "Load"
+
+[node name="deckspopup" type="PopupMenu" parent="."]
+oversampling_override = 1.0
+position = Vector2i(100, 0)
+visible = true
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 521.0
+offset_top = -337.0
+offset_right = 589.5625
+offset_bottom = -306.0
+
+[node name="btnnew" type="Button" parent="."]
+offset_left = 553.0
+offset_top = -397.0
+offset_right = 654.0
+offset_bottom = -366.0
+focus_mode = 0
+text = "New Deck"
+
+[node name="deck_name" type="LineEdit" parent="."]
+offset_left = 478.0
+offset_top = -337.0
+offset_right = 732.0
+offset_bottom = -306.0
+text = "Deck name"
+alignment = 1
+
+[node name="btndelete" type="Button" parent="."]
+offset_left = 660.0
+offset_top = -398.0
+offset_right = 761.0
+offset_bottom = -367.0
+focus_mode = 0
+text = "Delete"
+
+[node name="btnplay" type="Button" parent="."]
+offset_left = 235.0
+offset_top = -397.0
+offset_right = 394.0
+offset_bottom = -357.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_7t4mu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4n2m5")
+text = "
+"
+
+[node name="deck_count_label" type="Label" parent="."]
+offset_left = 534.0
+offset_top = 371.0
+offset_right = 676.0
+offset_bottom = 407.0
+text = "20 / 20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="botao_debug" type="Button" parent="."]
+offset_left = 393.0
+offset_top = 307.0
+offset_right = 494.0
+offset_bottom = 338.0
+focus_mode = 0
+text = "Debug"

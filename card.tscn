@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkytvilrcg6rj"]
+
+[ext_resource type="Script" uid="uid://bgl8thb0l2f4s" path="res://card.gd" id="1_kikvd"]
+[ext_resource type="Texture2D" uid="uid://dm2gnk3lh054i" path="res://assets/rush.png" id="2_q5obu"]
+[ext_resource type="Script" uid="uid://dy41fr5rkorgs" path="res://hitbox.gd" id="3_q5obu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjlel"]
+size = Vector2(757, 1118)
+
+[node name="card" type="Node2D"]
+script = ExtResource("1_kikvd")
+
+[node name="visual" type="Node2D" parent="."]
+
+[node name="art" type="Sprite2D" parent="visual"]
+position = Vector2(-1, -179.5)
+
+[node name="FrameSlot" type="Control" parent="visual"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="lock_icon" type="Sprite2D" parent="visual"]
+position = Vector2(250, -550)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_q5obu")
+
+[node name="icon_anchor" type="Marker2D" parent="visual"]
+position = Vector2(250, -550)
+
+[node name="hitbox" type="Area2D" parent="."]
+script = ExtResource("3_q5obu")
+
+[node name="collisionshape2d" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(5.5, -8)
+shape = SubResource("RectangleShape2D_rjlel")

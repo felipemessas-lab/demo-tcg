@@ -1,0 +1,133 @@
+[gd_scene load_steps=4 format=3 uid="uid://c26xyntdy3jl"]
+
+[ext_resource type="Script" uid="uid://c4txh00pfhod4" path="res://ui/frames/frame_hero.gd" id="1_3rptq"]
+[ext_resource type="Texture2D" uid="uid://bqc0x5a0mv4vc" path="res://assets/cards/frame_heroi_preto.png" id="2_xque4"]
+[ext_resource type="FontVariation" uid="uid://daw1mj76c41kf" path="res://assets/fontes/montserrat/Montserrat_bold.tres" id="3_qnhr2"]
+
+[node name="FrameHero" type="Node2D"]
+script = ExtResource("1_3rptq")
+
+[node name="FrameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -532.0
+offset_top = -651.0
+offset_right = 507.0
+offset_bottom = 668.0
+
+[node name="Frame" type="TextureRect" parent="FrameUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 21.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xque4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -512.0
+offset_top = -768.0
+offset_right = 512.0
+offset_bottom = 758.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="name" type="Label" parent="control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.041992188
+anchor_top = 0.017693317
+anchor_right = 0.041992188
+anchor_bottom = 0.017693317
+offset_left = 164.0
+offset_top = 227.0
+offset_right = 727.0
+offset_bottom = 289.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qnhr2")
+theme_override_font_sizes/font_size = 40
+text = "AAAAA"
+vertical_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="cost" type="Label" parent="control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.06542969
+anchor_top = 0.017038008
+anchor_right = -0.06542969
+anchor_bottom = 0.017038008
+offset_left = 759.0
+offset_top = 227.0
+offset_right = 859.0
+offset_bottom = 285.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qnhr2")
+theme_override_font_sizes/font_size = 40
+text = "cost"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="type" type="Label" parent="control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03515625
+anchor_top = -0.017693317
+anchor_right = 0.03515625
+anchor_bottom = -0.017693317
+offset_left = 165.0
+offset_top = 871.0
+offset_right = 851.0
+offset_bottom = 925.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qnhr2")
+theme_override_font_sizes/font_size = 40
+text = "type"
+vertical_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="rules" type="Label" parent="control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013670385
+anchor_top = -0.014570204
+anchor_right = -0.00014579296
+anchor_bottom = -0.0037525021
+offset_left = 173.0
+offset_top = 941.99994
+offset_right = 823.0
+offset_bottom = 1191.9999
+rotation = 0.0003229389
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qnhr2")
+theme_override_font_sizes/font_size = 35
+text = "Texto"
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="stats" type="Label" parent="control"]
+visible = false
+layout_mode = 0
+offset_left = 748.0
+offset_top = 1222.0
+offset_right = 855.0
+offset_bottom = 1271.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qnhr2")
+theme_override_font_sizes/font_size = 40
+text = "4 / 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1

@@ -1,0 +1,338 @@
+[gd_scene load_steps=10 format=3 uid="uid://kw07ir7vgd8t"]
+
+[ext_resource type="Script" uid="uid://ook3cvwh8ts1" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cccpnfdd6frhy" path="res://assets/board_clean.png" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://rkc1erwtb3l1" path="res://assets/life_points.png" id="3_h2yge"]
+[ext_resource type="FontFile" uid="uid://dgskcwlogpwwy" path="res://assets/fontes/montserrat/Montserrat-Bold.ttf" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://c780cuafl8gl4" path="res://assets/cards/card_back.png" id="5_lquwl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lquwl"]
+font = ExtResource("4_1bvp3")
+font_size = 18
+outline_color = Color(0.21230483, 0.21230483, 0.21230483, 1)
+shadow_color = Color(0, 0.582086, 0.48535067, 0)
+stacked_outline_count = 1
+stacked_shadow_count = 1
+stacked_outline_0/size = 3
+stacked_outline_0/color = Color(0.9073324, 0.7778729, 0.17184411, 0.45900002)
+stacked_shadow_0/offset = Vector2(1, 1)
+stacked_shadow_0/color = Color(0.80049086, 0.80049074, 0.80049074, 1)
+stacked_shadow_0/outline_size = -4
+
+[sub_resource type="LabelSettings" id="LabelSettings_7mycd"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_272bh"]
+font_size = 28
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="board" type="Sprite2D" parent="."]
+scale = Vector2(1.0270997, 0.826172)
+texture = ExtResource("2_0xm2m")
+
+[node name="camera" type="Camera2D" parent="."]
+zoom = Vector2(0.85, 0.85)
+
+[node name="slots" type="Node2D" parent="."]
+
+[node name="cards" type="Node2D" parent="."]
+
+[node name="log_anchor" type="Marker2D" parent="."]
+position = Vector2(433, -393)
+
+[node name="log_panel" type="Panel" parent="log_anchor"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="log_fight" type="TextEdit" parent="log_anchor/log_panel"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 111.0
+offset_right = 310.0
+offset_bottom = 800.0
+theme_override_font_sizes/font_size = 12
+wrap_mode = 1
+scroll_smooth = true
+
+[node name="canvaslayer" type="CanvasLayer" parent="."]
+layer = 3
+follow_viewport_enabled = true
+
+[node name="Button" type="Button" parent="canvaslayer"]
+offset_left = -950.0
+offset_top = -159.0
+offset_right = -869.0
+offset_bottom = -128.0
+focus_mode = 0
+text = "Pass turn"
+
+[node name="life_p1" type="Control" parent="canvaslayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -272.0
+offset_right = 40.0
+offset_bottom = -232.0
+
+[node name="TextureRect" type="TextureRect" parent="canvaslayer/life_p1"]
+layout_mode = 0
+offset_left = -730.0
+offset_top = 254.0
+offset_right = -589.0
+offset_bottom = 465.5
+texture = ExtResource("3_h2yge")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="value" type="Label" parent="canvaslayer/life_p1"]
+layout_mode = 0
+offset_left = -680.0
+offset_top = 358.0
+offset_right = -640.0
+offset_bottom = 381.0
+label_settings = SubResource("LabelSettings_lquwl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="life_p2" type="Control" parent="canvaslayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = 279.0
+offset_right = 35.0
+offset_bottom = 319.0
+
+[node name="TextureRect" type="TextureRect" parent="canvaslayer/life_p2"]
+layout_mode = 0
+offset_left = -728.0
+offset_top = -447.0
+offset_right = -587.0
+offset_bottom = -235.5
+texture = ExtResource("3_h2yge")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="value" type="Label" parent="canvaslayer/life_p2"]
+layout_mode = 0
+offset_left = -678.0
+offset_top = -355.0
+offset_right = -638.0
+offset_bottom = -307.0
+text = "
+"
+label_settings = SubResource("LabelSettings_lquwl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btnhost" type="Button" parent="canvaslayer"]
+offset_left = 563.0
+offset_top = -393.0
+offset_right = 644.0
+offset_bottom = -362.0
+focus_mode = 0
+text = "host"
+
+[node name="btnjoin" type="Button" parent="canvaslayer"]
+offset_left = 660.0
+offset_top = -393.0
+offset_right = 741.0
+offset_bottom = -362.0
+focus_mode = 0
+text = "Join"
+
+[node name="ipedit" type="LineEdit" parent="canvaslayer"]
+offset_left = 562.0
+offset_top = -348.0
+offset_right = 745.0
+offset_bottom = -317.0
+placeholder_text = "127.0.0.1"
+alignment = 1
+
+[node name="netstatus" type="Label" parent="canvaslayer"]
+offset_left = 563.0
+offset_top = -315.0
+offset_right = 745.0
+offset_bottom = -288.0
+text = "Offline"
+horizontal_alignment = 1
+
+[node name="btnendturn" type="Button" parent="canvaslayer"]
+offset_left = -548.0
+offset_top = -147.0
+offset_right = -450.0
+offset_bottom = -116.0
+focus_mode = 0
+text = "btnendturn"
+
+[node name="btnbuy" type="Button" parent="canvaslayer"]
+offset_left = -963.0
+offset_top = -201.0
+offset_right = -865.0
+offset_bottom = -170.0
+focus_mode = 0
+text = "Buy card"
+
+[node name="deck_count_p1" type="Label" parent="canvaslayer"]
+visible = false
+offset_left = 464.0
+offset_top = 285.0
+offset_right = 517.0
+offset_bottom = 320.0
+text = "10"
+label_settings = SubResource("LabelSettings_7mycd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="deck_count_p2" type="Label" parent="canvaslayer"]
+visible = false
+offset_left = 474.0
+offset_top = -300.0
+offset_right = 520.0
+offset_bottom = -265.0
+text = "10"
+label_settings = SubResource("LabelSettings_1bvp3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ui_bottom" type="Control" parent="canvaslayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 1129.0
+offset_top = -152.0
+offset_right = 1169.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="deck_panel" type="Control" parent="canvaslayer/ui_bottom"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="deck_icon" type="TextureRect" parent="canvaslayer/ui_bottom/deck_panel"]
+visible = false
+layout_mode = 0
+offset_left = -1328.0
+offset_top = -338.0
+offset_right = -304.0
+offset_bottom = 1198.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_lquwl")
+
+[node name="deck_count" type="Label" parent="canvaslayer/ui_bottom/deck_panel"]
+layout_mode = 0
+offset_left = -1292.0
+offset_top = -299.0
+offset_right = -1261.0
+offset_bottom = -260.0
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="graveyard_panel" type="Control" parent="canvaslayer/ui_bottom"]
+anchors_preset = 0
+offset_left = -1296.0
+offset_top = -370.0
+offset_right = -1256.0
+offset_bottom = -330.0
+
+[node name="ui_top" type="Control" parent="canvaslayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 1130.0
+offset_top = 84.0
+offset_right = 1170.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="deck_panel" type="Control" parent="canvaslayer/ui_top"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="deck_icon" type="TextureRect" parent="canvaslayer/ui_top/deck_panel"]
+visible = false
+layout_mode = 0
+offset_left = -1329.0
+offset_top = -1156.0
+offset_right = -305.0
+offset_bottom = 380.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_lquwl")
+
+[node name="deck_count" type="Label" parent="canvaslayer/ui_top/deck_panel"]
+layout_mode = 0
+offset_left = -1297.0
+offset_top = -1131.0
+offset_right = -1257.0
+offset_bottom = -1092.0
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+
+[node name="graveyard_panel" type="Control" parent="canvaslayer/ui_top"]
+anchors_preset = 0
+offset_left = -1295.0
+offset_top = -1018.0
+offset_right = -1255.0
+offset_bottom = -978.0
+
+[node name="mana_count_bottom" type="Label" parent="canvaslayer"]
+offset_left = -535.0
+offset_top = 108.0
+offset_right = -482.0
+offset_bottom = 143.0
+text = "10"
+label_settings = SubResource("LabelSettings_7mycd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mana_count_top" type="Label" parent="canvaslayer"]
+offset_left = -617.0
+offset_top = -127.0
+offset_right = -564.0
+offset_bottom = -92.0
+text = "10"
+label_settings = SubResource("LabelSettings_7mycd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_keep" type="Button" parent="canvaslayer"]
+offset_left = -349.0
+offset_top = -321.0
+offset_right = -251.0
+offset_bottom = -290.0
+focus_mode = 0
+text = "Keep
+"
+
+[node name="btn_mulligan" type="Button" parent="canvaslayer"]
+offset_left = -341.0
+offset_top = -262.0
+offset_right = -243.0
+offset_bottom = -231.0
+focus_mode = 0
+text = "Mulligan"
+
+[node name="markers" type="Node2D" parent="."]
+
+[node name="hero_p1" type="Marker2D" parent="markers"]
+position = Vector2(-657, 148)
+
+[node name="deck_p1" type="Marker2D" parent="markers"]
+position = Vector2(493, 298)
+
+[node name="grave_p1" type="Marker2D" parent="markers"]
+position = Vector2(487, 110)

@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd0ktbu2ybst1"]
+
+[ext_resource type="Script" uid="uid://b33457228mhsw" path="res://ui/frames/frame_mana.gd" id="1_u4w33"]
+[ext_resource type="Texture2D" uid="uid://diqdr1rqs01uw" path="res://assets/cards/Frame_mana.png" id="2_xu5il"]
+[ext_resource type="FontVariation" uid="uid://daw1mj76c41kf" path="res://assets/fontes/montserrat/Montserrat_bold.tres" id="3_2ymti"]
+
+[node name="FrameMana" type="Node2D"]
+script = ExtResource("1_u4w33")
+
+[node name="frame" type="Sprite2D" parent="."]
+position = Vector2(-7.9999866, -14.499987)
+scale = Vector2(0.9609376, 0.938151)
+texture = ExtResource("2_xu5il")
+
+[node name="control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -512.0
+offset_top = -768.0
+offset_right = 512.0
+offset_bottom = 758.0
+mouse_filter = 2
+
+[node name="name" type="Label" parent="control"]
+layout_mode = 1
+offset_left = 164.0
+offset_top = 227.0
+offset_right = 727.0
+offset_bottom = 289.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2ymti")
+theme_override_font_sizes/font_size = 40
+text = "AAAAA"
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="cost" type="Label" parent="control"]
+layout_mode = 0
+offset_left = 759.0
+offset_top = 227.0
+offset_right = 859.0
+offset_bottom = 285.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2ymti")
+theme_override_font_sizes/font_size = 40
+text = "cost"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="type" type="Label" parent="control"]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 871.0
+offset_right = 851.0
+offset_bottom = 925.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2ymti")
+theme_override_font_sizes/font_size = 40
+text = "type"
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="rules" type="Label" parent="control"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 941.99994
+offset_right = 823.0
+offset_bottom = 1191.9999
+rotation = 0.0003229389
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2ymti")
+theme_override_font_sizes/font_size = 35
+text = "Texto"
+autowrap_mode = 1
+
+[node name="stats" type="Label" parent="control"]
+visible = false
+layout_mode = 0
+offset_left = 748.0
+offset_top = 1222.0
+offset_right = 855.0
+offset_bottom = 1271.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2ymti")
+theme_override_font_sizes/font_size = 40
+text = "4 / 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1

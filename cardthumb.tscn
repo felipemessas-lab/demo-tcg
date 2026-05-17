@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://clmnmn1du01el"]
+
+[ext_resource type="Script" uid="uid://cupeyf1ntgqua" path="res://cardthumb.gd" id="1_hynyk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hynyk"]
+bg_color = Color(0.90281796, 0.77664757, 0.5137611, 0.624)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1.1866956, 1.0848758, 0.65769434, 0.834)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="CardThumb" type="Control"]
+custom_minimum_size = Vector2(180, 270)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 180.0
+offset_bottom = 270.0
+script = ExtResource("1_hynyk")
+
+[node name="View" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="View"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(180, 270)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Glow" type="Panel" parent="View/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hynyk")
+
+[node name="World" type="Node2D" parent="View/SubViewport"]
+
+[node name="Click" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
